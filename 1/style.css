@@ -214,14 +214,17 @@ body {
     /*-webkit-transition: all 0.2s;*/
 
 }
+.picker-ctn {
+    width: 800px;
+    max-height: 536px;
+    overflow-y: scroll;
+    padding-bottom: 80px;
+}
 
 
 .picker {
     margin: 0 auto;
     max-width: 760px;
-    max-height: 536px;
-    overflow: scroll;
-    padding-bottom: 80px;
 }
 
 
@@ -314,7 +317,7 @@ body {
     bottom: 0;
     height: 100px;
     width: 800px;
-    border-radius: 8px;
+    border-radius: 0 0 8px 8px;
     background-color: #FFFFFF;
     z-index: 20;
 }
