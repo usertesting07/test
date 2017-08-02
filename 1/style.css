@@ -265,7 +265,7 @@ body {
 }
 
 .smallCheckmark {
-    background-image: url("./img/smallCheck.svg");
+    background-image: url("./img/smallcheck.svg");
     width: 24px;
     height: 24px;
     position: absolute;
