@@ -15,7 +15,7 @@ h1 {
 
 
 .tp {
-    max-width: 756px;
+    max-width: 780px;
     background-color: #FFFFFF;
     height: 100%;
     position: relative;
@@ -60,7 +60,7 @@ h1 {
 .subtopic {
     width: 112px;
     height: 112px;
-    margin-bottom: 6px;
+    margin-bottom: 12px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center; 
@@ -83,7 +83,8 @@ h1 {
 
 .topicParent {
     height: 360px;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
+    font-size: 0;
 }
 
 .topicParent.disappear .subtopic {
@@ -107,7 +108,7 @@ h1 {
 
 .topicText {
     position: absolute;
-    max-width: 160px;
+    max-width: 152px;
     font-size: 21px;
     line-height: 23px;
     font-weight: 800;
@@ -146,15 +147,11 @@ h1 {
     -webkit-transform: scale(2) ;
 }
 
-.topicParent.selected {
-    margin-bottom: 20px;
-    /*-webkit-transition: all 0.2s;*/
-}
 
 .topicParent.selected .topic {
     height: 112px;
     width: 112px;
-    margin-bottom: 6px;
+    margin-bottom: 12px;
     margin-right: 12px;
     display: inline-block;
     -webkit-transition: all 0.25s;
@@ -245,7 +242,7 @@ h1 {
 .col{
     width: 236px;
     height: auto;
-    margin-left: 24px;
+    margin-left: 32px;
     float: left;
     background-color:none;
 }
