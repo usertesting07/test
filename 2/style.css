@@ -202,7 +202,6 @@ body {
     width: 800px;
     max-height: 536px;
     overflow-y: scroll;
-    padding-bottom: 80px;
 }
 
 .picker {
@@ -275,6 +274,8 @@ body {
     margin-left: 24px;
     float: left;
     background-color:none;
+    padding-bottom: 80px;
+
 }
 
 .col:first-of-type {
