@@ -207,6 +207,11 @@ $(document).ready(function(){
         loadTopics();
     },1000)
 
+    $(".next").click(function(evt) {
+        if ($(".next").hasClass("active")) {
+            alert("That's where this prototype ends.\n Referesh the page to interact with it again.")
+        }
+    })
 
 })
 
