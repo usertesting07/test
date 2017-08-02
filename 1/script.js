@@ -1,10 +1,12 @@
 $(document).ready(function(){
 
-
+    var count = 0;
     var width = $(window).width();
     var numCols = Math.floor((width/252));
 
     var topics = ["food", "home", "style", "beauty", "diy", "design", "travel", "gardening", "art", "wedding", "outdoors", "animals"]
+
+
 
     var topicTitles = ["Try new recipes", 
         "Spruce up your home", 
@@ -31,8 +33,8 @@ $(document).ready(function(){
     var outdoorsSubtopics = ["Outdoors", "Backpacking", "Canoeing", "hiking", "Roadbiking"]
     var animalsSubtopics = ["Animals", "Dogs", "Cats", "Cute animals", "Wild animals"]
 
-    var colorTints = ["rgba(241,53,53,0.8)", "rgba(226,120,13,0.8)", "rgba(250,185,4,0.8)", "rgba(15,165,115,0.8)", "rgba(0,132,255,0.8)", "rgba(180,105,235,0.8)"]
 
+    var colorTints = ["rgba(241,53,53,0.8)", "rgba(226,120,13,0.8)", "rgba(250,185,4,0.8)", "rgba(15,165,115,0.8)", "rgba(0,132,255,0.8)", "rgba(180,105,235,0.8)"]
 
     var subtopicTitles = {
         food : foodSubtopics,
@@ -47,6 +49,20 @@ $(document).ready(function(){
         wedding: weddingSubtopics,
         outdoors: outdoorsSubtopics,
         animals: animalsSubtopics
+    }
+
+
+    function updateCount(count) {
+        if (count >=5) {
+            $(".next").addClass("active")
+        } else if (count < 5) {
+            $(".next").removeClass("active")
+        }
+        if ((5-count) <= 0) {
+            $(".next-copy").text("Continue");
+        } else {
+            $(".next-copy").text("Follow "+(5-count)+" more");
+        }
     }
 
 
@@ -65,16 +81,16 @@ $(document).ready(function(){
         $topicParent.attr("id",topicName);
         var $topic = $(document.createElement("div")).addClass("topic");
 
-        var $topicParent.selected
-
+        $topic.css("background-image", "url('img/subtopics/"+topicName+"/0.jpg')");
 
         var $topicText = $(document.createElement("div")).addClass("topicText");
-        title = subtopicTitles[topics[i]][0]
+        title = topicTitles[i]
         $topicText.text(title)
         $topic.append($topicText)
 
         var $mask = $(document.createElement("div")).addClass("mask");
-        // $mask.css("background-color", colorTints[i%6])
+        // $mask.css("background-color", colorTints[i%6]);
+        var $checkmark = $(document.createElement("div")).addClass("checkmark")
         $mask.append($topicText.clone())
         $mask.append($checkmark)
         $topic.append($mask);
@@ -88,7 +104,8 @@ $(document).ready(function(){
     var createSubtopic = function (topic, i) {
         var $subtopic = $(document.createElement("div")).addClass("subtopic");
         $subtopic.css({
-            "background-image" : "url('img/subtopics/"+topic.id+"/"+i+".JPG')",
+            "background-image" : "url('img/subtopics/"+topic.id+"/"+i+".jpg')",
+            "margin-right" : ""+(12*(i%2))+"px"
         });
 
         var $subtopicText = $(document.createElement("div")).addClass("subtopicText");
@@ -109,25 +126,41 @@ $(document).ready(function(){
             evt.stopPropagation();
             var $maskLayer = $(evt.target).closest(".subtopicMask");
             if ($maskLayer.hasClass("selected")) {
+                count = count-1;
                 $maskLayer.removeClass("selected")
             } else {
+                count = count+1;
                 $maskLayer.addClass("selected");
             }
+            updateCount(count);
         })
 
         setTimeout(function () {
             $subtopic.addClass("appear");
-        }, 200+25*i);
+        }, 25*i);
         return $subtopic
     }
 
     var addSubtopics = function (topic) {
-        // var $subtopics = $(document.createElement("div")).addClass("subtopics");
-        for (i=0; i<5; i++) {
+        var $subtopics = $(document.createElement("div")).addClass("subtopics");
+        $subtopics.css("max-height",""+(((2)*124)-12)+"px")
+
+
+        for (i=1; i<5; i++) {
             var $subtopic = createSubtopic(topic, i);
-            // $subtopics.append($subtopic)
-            $(topic).closest('.topicParent').append($subtopic);
+            $subtopics.append($subtopic)
+            $(topic).closest('.topicParent').append($subtopics);
         }
+    }
+
+    var isSubTopicSelected = function (topicParent) {
+        masks = topicParent.find(".subtopicMask");
+        for (var i=0; i<4; i++) {
+            if ($(masks[i]).hasClass("selected")) {
+                return true;
+            }
+        }
+        return false
     }
 
     var loadTopics = function () {
@@ -137,16 +170,33 @@ $(document).ready(function(){
             $topicParent.click(function(evt) {
                 var $this = $(this);
                 if ($this.hasClass("selected")) {
-                    $this.removeClass("selected");
-                    $this.addClass("disappear")
-                    setTimeout(function () {
-                        $($this.find('.subtopic')).remove()
-                    }, 450);
+
+                    if (isSubTopicSelected($this)) {
+                        if ($this.hasClass("uncheck")) {
+                            count = count+1;
+                            $this.removeClass("uncheck")
+                        } else {
+                            count = count-1;
+                            $this.addClass("uncheck");
+                        }
+                    } else {
+                        count = count-1;
+                        $this.removeClass("selected");
+                        $this.removeClass("uncheck");
+                        $this.addClass("disappear")
+                        setTimeout(function () {
+                            $($this.find('.subtopics')).remove()
+                        }, 450);
+
+                    }
+
                 } else {
+                    count = count+1;
                     $this.addClass("selected");
                     $this.removeClass("disappear")
                     addSubtopics(this);
                 }
+                updateCount(count);
             });
         };
 
