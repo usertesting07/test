@@ -310,6 +310,10 @@ body {
     z-index: 10;
 }
 
+.next.active {
+    background-color: #BD081C;
+    color: #ffffff;
+}
 .next-copy {
     height: ;
 }

@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-
+    var count = 0
     var width = $(window).width();
     var numCols = Math.floor((width/252));
 
@@ -49,6 +49,18 @@ $(document).ready(function(){
         animals: animalsSubtopics
     }
 
+    function updateCount(count) {
+        if (count >=5) {
+            $(".next").addClass("active")
+        } else if (count < 5) {
+            $(".next").removeClass("active")
+        }
+        if ((5-count) == 0) {
+            $(".next-copy").text("Continue");
+        } else {
+            $(".next-copy").text("Follow "+(5-count)+" more");
+        }
+    }
 
     function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -110,10 +122,14 @@ $(document).ready(function(){
             evt.stopPropagation();
             var $maskLayer = $(evt.target).closest(".subtopicMask");
             if ($maskLayer.hasClass("selected")) {
+                count = count-1;
                 $maskLayer.removeClass("selected")
             } else {
+                count = count+1;
                 $maskLayer.addClass("selected");
             }
+            updateCount(count);
+
         })
 
         setTimeout(function () {
@@ -138,16 +154,20 @@ $(document).ready(function(){
             $topicParent.click(function(evt) {
                 var $this = $(this);
                 if ($this.hasClass("selected")) {
+                    count = count-1;
                     $this.removeClass("selected");
                     $this.addClass("disappear")
                     setTimeout(function () {
                         $($this.find('.subtopic')).remove()
                     }, 450);
                 } else {
+                    count = count+1;
                     $this.addClass("selected");
                     $this.removeClass("disappear")
                     addSubtopics(this);
                 }
+                updateCount(count);
+
             });
         };
 
