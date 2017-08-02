@@ -97,6 +97,10 @@ $(document).ready(function(){
         return $topicParent;
     }
 
+    var isLastSubtopicSelected = function ($tp) {
+        return $tp.hasClass("selected") && $tp.hasClass("uncheck")
+    }
+
     var createSubtopic = function (topic, i) {
         var $subtopic = $(document.createElement("div")).addClass("subtopic");
         $subtopic.css({
@@ -124,6 +128,17 @@ $(document).ready(function(){
             if ($maskLayer.hasClass("selected")) {
                 count = count-1;
                 $maskLayer.removeClass("selected")
+                $this = $(this)
+                $tp = $(evt.target).closest(".topicParent");
+
+                if (!(isSubTopicSelected($tp)) && isLastSubtopicSelected($tp)) {
+                    $tp.removeClass("selected");
+                    $tp.removeClass("uncheck");
+                    $tp.addClass("disappear")
+                    setTimeout(function () {
+                        $($tp.find('.subtopic')).remove()
+                    }, 450);
+                }
             } else {
                 count = count+1;
                 $maskLayer.addClass("selected");
@@ -147,6 +162,17 @@ $(document).ready(function(){
         }
     }
 
+
+    var isSubTopicSelected = function (topicParent) {
+        masks = topicParent.find(".subtopicMask");
+        for (var i=0; i<4; i++) {
+            if ($(masks[i]).hasClass("selected")) {
+                return true;
+            }
+        }
+        return false
+    }
+
     var loadTopics = function () {
         for (i=0; i<topics.length; i++) {
             $topicParent = createTopicParent(topics[i])
@@ -154,17 +180,35 @@ $(document).ready(function(){
             $topicParent.click(function(evt) {
                 var $this = $(this);
                 if ($this.hasClass("selected")) {
-                    count = count-1;
-                    $this.removeClass("selected");
-                    $this.addClass("disappear")
-                    setTimeout(function () {
-                        $($this.find('.subtopic')).remove()
-                    }, 450);
+
+                    if (isSubTopicSelected($this)) {
+                        if ($this.hasClass("uncheck")) {
+                            count = count+1;
+                            $this.removeClass("uncheck")
+                        } else {
+                            count = count-1;
+                            $this.addClass("uncheck");
+                        }
+                    } else {
+                        count = count-1;
+                        $this.removeClass("selected");
+                        $this.removeClass("uncheck");
+                        $this.addClass("disappear")
+                        setTimeout(function () {
+                            $($this.find('.subtopic')).remove()
+                        }, 450);
+                    }
                 } else {
-                    count = count+1;
-                    $this.addClass("selected");
-                    $this.removeClass("disappear")
-                    addSubtopics(this);
+                    if (isSubTopicSelected($this)) {
+                        count = count+1;
+                        $this.addClass("selected");
+                        $this.removeClass("uncheck");
+                    } else {
+                        count = count+1;
+                        $this.addClass("selected");
+                        $this.removeClass("disappear")
+                        addSubtopics(this);
+                    }
                 }
                 updateCount(count);
 

@@ -108,7 +108,7 @@ body {
 }
 
 .topicParent.disappear .subtopic.appear {
-    -webkit-animation: disappear 0.25s;
+    -webkit-animation: disappear 0.085s;
     -webkit-transition: ease-out;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-fill-mode:forwards;
@@ -173,22 +173,21 @@ body {
     left: 8px;
     max-width: 100px;
     -webkit-transition: all 0.25s;
-
 }
 
 .topicParent.selected .mask {
-    background-color: rgba(0,0,0,0.7) !important;
+    background-color: rgba(0,0,0,0.7);
     height: 112px;
     width: 112px;
     -webkit-transition: all 0.25s;
 }
 
 .topicParent.selected .mask:hover {
-    background-color: rgba(0,0,0,0.7) !important;
+    background-color: rgba(0,0,0,0.7);
 }
 
 .topic:hover .mask{
-    background-color: rgba(0,0,0,0.6) !important;
+    background-color: rgba(0,0,0,0.6);
     -webkit-transition: all 0.25s;
 }
 
@@ -253,6 +252,14 @@ body {
 
 }
 
+.topicParent.uncheck .mask .smallCheckmark {
+    opacity: 0;
+    -webkit-transition: all 0.2s;
+}
+
+.topicParent.uncheck .mask {
+    background-color: rgba(0,0,0,0.2);
+}
 .subtopicMask.selected .smallCheckmark {
     opacity: 1;
     -webkit-transition: .085s opacity;
