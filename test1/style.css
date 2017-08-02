@@ -73,8 +73,7 @@ body {
 
 
 .subtopics {
-    max-height: 800;
-    margin-top: -7px;
+    height: 236px;
     font-size: 0;
     position: absolute;
     bottom: 0;
@@ -182,7 +181,7 @@ body {
     /*-webkit-transition: all 0.2s;*/
 }
 .topicParent.selected .mask {
-    background-color: rgba(0,0,0,0.8) !important;
+    background-color: rgba(0,0,0,0.7) !important;
     height: 72px;
     -webkit-transition: all 0.25s;
 }
@@ -195,7 +194,7 @@ body {
 
 .subtopicMask.selected,
 .subtopic:hover .subtopicMask {
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.7);
     /*-webkit-transition: all 0.2s;*/
 
 }
@@ -204,8 +203,9 @@ body {
 .picker {
     margin: 0 auto;
     max-width: 756px;
-    max-height:600px;
+    max-height:700px;
     overflow: scroll;
+    padding-bottom: 100px;
 }
 
 
@@ -308,6 +308,11 @@ body {
     color: #b5b5b5;
     z-index: 10;
 
+}
+
+.next.active {
+    background-color: #BD081C;
+    color: #ffffff;
 }
 
 .gradient {
