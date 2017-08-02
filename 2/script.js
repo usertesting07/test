@@ -28,7 +28,7 @@ $(document).ready(function(){
     var designSubtopics = ["Design", "Graphic design", "Industrial design", "Web design", "Typography"]
     var gardeningSubtopics = ["Gardening", "Flowers", "Urban gardening", "Landscaping", "Container gardening"]
     var weddingSubtopics = ["Weddings", "Wedding dresses", "Wedding photography", "Bridesmaid dresses", "Romantic weddings"]
-    var outdoorsSubtopics = ["Outdoors", "Backpacking", "Canoeing", "hiking", "Roadbiking"]
+    var outdoorsSubtopics = ["Outdoors", "Backpacking", "Canoeing", "Hiking", "Roadbiking"]
     var animalsSubtopics = ["Animals", "Dogs", "Cats", "Cute animals", "Wild animals"]
 
     var colorTints = ["rgba(241,53,53,0.8)", "rgba(226,120,13,0.8)", "rgba(250,185,4,0.8)", "rgba(15,165,115,0.8)", "rgba(0,132,255,0.8)", "rgba(180,105,235,0.8)"]

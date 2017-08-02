@@ -30,7 +30,7 @@ $(document).ready(function(){
     var designSubtopics = ["Design", "Graphic design", "Industrial design", "Web design", "Typography"]
     var gardeningSubtopics = ["Gardening", "Flowers", "Urban gardening", "Landscaping", "Container gardening"]
     var weddingSubtopics = ["Weddings", "Wedding dresses", "Wedding photography", "Bridesmaid dresses", "Romantic weddings"]
-    var outdoorsSubtopics = ["Outdoors", "Backpacking", "Canoeing", "hiking", "Roadbiking"]
+    var outdoorsSubtopics = ["Outdoors", "Backpacking", "Canoeing", "Hiking", "Roadbiking"]
     var animalsSubtopics = ["Animals", "Dogs", "Cats", "Cute animals", "Wild animals"]
 
 
