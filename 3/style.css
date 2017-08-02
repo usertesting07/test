@@ -103,6 +103,10 @@ body {
     margin-bottom: 24px;
 }
 
+.topicParent:last-child {
+    margin-bottom: 120px;
+}
+
 .topicName {
     font-size: 21px;
     line-height: 24px;
