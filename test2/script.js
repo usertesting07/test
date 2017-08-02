@@ -65,7 +65,7 @@ $(document).ready(function(){
         $topicParent.attr("id",topicName);
         var $topic = $(document.createElement("div")).addClass("topic");
 
-        $topic.css("background-image", "url('img/subtopics/"+topicName+"/0.JPG')");
+        $topic.css("background-image", "url('img/subtopics/"+topicName+"/0.jpg')");
 
         var $topicText = $(document.createElement("div")).addClass("topicText");
         title = topicTitles[i]
@@ -88,7 +88,7 @@ $(document).ready(function(){
     var createSubtopic = function (topic, i) {
         var $subtopic = $(document.createElement("div")).addClass("subtopic");
         $subtopic.css({
-            "background-image" : "url('img/subtopics/"+topic.id+"/"+i+".JPG')",
+            "background-image" : "url('img/subtopics/"+topic.id+"/"+(i+1)+".jpg')",
             "margin-right" : ""+(12*(i%2))+"px"
         });
 
@@ -124,7 +124,7 @@ $(document).ready(function(){
 
     var addSubtopics = function (topic) {
         // var $subtopics = $(document.createElement("div")).addClass("subtopics");
-        for (i=0; i<5; i++) {
+        for (i=0; i<3; i++) {
             var $subtopic = createSubtopic(topic, i);
             // $subtopics.append($subtopic)
             $(topic).closest('.topicParent').append($subtopic);

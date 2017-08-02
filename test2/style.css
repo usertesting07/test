@@ -13,24 +13,33 @@ h1 {
     line-height: 28px;
 }
 
+body {
+    overflow: hidden;
+}
+
 
 .tp {
-    max-width: 780px;
+    max-width: 800px;
+    height: 640px;
     background-color: #FFFFFF;
-    height: 100%;
+    max-height: 800px;
     position: relative;
     margin: 60px auto;
+    border-radius: 8px;
+
 }
 .tp-header {
     color: #555;
-    padding: 0px 4px 12px 4px;
+    margin: 0px 30px;
+    padding: 32px 0px 16px 0px;
     z-index: 12;
+    position: relative;
 }
 
 .tp-header h1 {
     position: inline-block;
     left: 0;
-    width: 60%;
+    width: 80%;
 }
 
 .topics {
@@ -41,7 +50,7 @@ h1 {
 
 .topic {
     width: 236px;
-    height: 360px;
+    height: 236px;
     margin-bottom: 20px;
     background-size: cover;
     background-repeat: no-repeat;
@@ -82,8 +91,8 @@ h1 {
 }
 
 .topicParent {
-    height: 360px;
-    margin-bottom: 32px;
+    height: 236px;
+    margin-bottom: 24px;
     font-size: 0;
 }
 
@@ -94,7 +103,7 @@ h1 {
 }
 
 .topicParent.disappear {
-    max-height: 260px;
+    max-height: 236px;
     -webkit-animation: height 0.45s;
 }
 
@@ -130,7 +139,7 @@ h1 {
 
 .mask {
     background-color: rgba(0,0,0,0.2);
-    height: 360px;
+    height: 236px;
     width: 236px;
     border-radius: 8px;    
     -webkit-transition: all 0.25s;
@@ -162,6 +171,7 @@ h1 {
     line-height: 16px;
     bottom: 8px;
     left: 8px;
+    max-width: 100px;
     -webkit-transition: all 0.25s;
 
 }
@@ -189,10 +199,20 @@ h1 {
 
 }
 
+
+.picker {
+    margin: 0 auto;
+    max-width: 756px;
+    max-height: 536px;
+    overflow: scroll;
+    padding-bottom: 80px;
+}
+
 .modal {
     background-color: #000;
     opacity: .4;
     top: 0;
+    left: 0;
     position: fixed;
     width: 100%;
     height: 100%;
@@ -217,7 +237,7 @@ h1 {
 }
 
 .smallCheckmark {
-    background-image: url("./img/smallCheck.svg");
+    background-image: url("./img/smallcheck.svg");
     width: 24px;
     height: 24px;
     position: absolute;
@@ -242,7 +262,7 @@ h1 {
 .col{
     width: 236px;
     height: auto;
-    margin-left: 32px;
+    margin-left: 24px;
     float: left;
     background-color:none;
 }
@@ -264,21 +284,34 @@ h1 {
     -webkit-transition: opacity 0.35s;
 }
 
+.next-ctn {
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    width: 800px;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+}
+
 .next {
     position: absolute;
-    height: 40px;
+    height: 58px;
+    width: 756px;
     padding: 2px 14px;
-    right: 0px;
-    top: 0px;
-    font-size: 14px;
-    line-height: 18px;
+    left: 24px;
+    bottom: 20px;
+    font-size: 24px;
+    line-height: 28px;
     font-weight: 800;
     border: none;
     border-radius: 4px;
     background-color: #efefef;
     color: #b5b5b5;
     z-index: 10;
+}
 
+.next-copy {
+    height: ;
 }
 
 .gradient {
