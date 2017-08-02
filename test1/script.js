@@ -76,7 +76,7 @@ $(document).ready(function(){
         $topicParent.attr("id",topicName);
         var $topic = $(document.createElement("div")).addClass("topic");
 
-        $topic.css("background-image", "url('img/subtopics/"+topicName+"/0.JPG')");
+        $topic.css("background-image", "url('img/subtopics/"+topicName+"/0.jpg')");
 
         var $topicText = $(document.createElement("div")).addClass("topicText");
         title = topicTitles[i]
