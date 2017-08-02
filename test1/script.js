@@ -99,7 +99,7 @@ $(document).ready(function(){
     var createSubtopic = function (topic, i) {
         var $subtopic = $(document.createElement("div")).addClass("subtopic");
         $subtopic.css({
-            "background-image" : "url('img/subtopics/"+topic.id+"/"+i+".JPG')",
+            "background-image" : "url('img/subtopics/"+topic.id+"/"+i+".jpg')",
             "margin-right" : ""+(12*(i%2))+"px"
         });
 
