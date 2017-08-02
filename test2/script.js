@@ -55,7 +55,7 @@ $(document).ready(function(){
         } else if (count < 5) {
             $(".next").removeClass("active")
         }
-        if ((5-count) == 0) {
+        if ((5-count) <= 0) {
             $(".next-copy").text("Continue");
         } else {
             $(".next-copy").text("Follow "+(5-count)+" more");
